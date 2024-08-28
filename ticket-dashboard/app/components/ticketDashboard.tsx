@@ -80,7 +80,7 @@ const INITIAL_VISIBLE_COLUMNS = [
 type User = (typeof usersDB)[0];
 
 export default function TicketDashboard() {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState<User[]>([]);
   const [filterValue, setFilterValue] = React.useState("");
   const [selectedKeys, setSelectedKeys] = React.useState<Selection>(
     new Set([])
