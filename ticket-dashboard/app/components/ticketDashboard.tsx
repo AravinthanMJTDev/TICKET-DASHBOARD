@@ -35,7 +35,7 @@ import {
 } from "lucide-react";
 import Popup from "./popupform";
 
-export interface User {
+interface UserType {
   id: number;
   name: string;
   email: string;
@@ -80,7 +80,7 @@ const INITIAL_VISIBLE_COLUMNS = [
 type User = (typeof usersDB)[0];
 
 export default function TicketDashboard() {
-  const [users, setUsers] = useState<User[]>([]);
+  const [users, setUsers] = useState([]);
   const [filterValue, setFilterValue] = React.useState("");
   const [selectedKeys, setSelectedKeys] = React.useState<Selection>(
     new Set([])
@@ -101,7 +101,7 @@ export default function TicketDashboard() {
 
   useEffect(() => {
     return setUsers(usersDB);
-  }, usersDB);
+  }, [usersDB]);
   const headerColumns = React.useMemo(() => {
     if (visibleColumns === "all") return columns;
 
@@ -152,7 +152,7 @@ export default function TicketDashboard() {
   //  HANDLE DELETE
   const handleDelete = () => {
     const newUsers = users.filter(
-      (user) => !selectedKeys.has(user.id.toString())
+      (user) => !Array.from(selectedKeys).includes(user.id.toString())
     );
     setSelectedKeys(new Set());
     setUsers(newUsers);
