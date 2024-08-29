@@ -100,7 +100,7 @@ export default function TicketDashboard() {
   const [menuExpand, setMenuExpand] = useState(false);
 
   useEffect(() => {
-    return setUsers(usersDB);
+    setUsers(usersDB);
   }, [usersDB]);
   const headerColumns = React.useMemo(() => {
     if (visibleColumns === "all") return columns;
@@ -256,8 +256,8 @@ export default function TicketDashboard() {
 
   const topContent = React.useMemo(() => {
     return (
-      <div className="flex flex-col gap-4   ">
-        <div className="flex  justify-between gap-3 items-center  transition-all duration-1000 ease-in-out">
+      <div className="flex flex-col gap-4   transition-all duration-1000 ease-in-out">
+        <div className="flex  justify-between gap-3 items-center  ">
           <p className="hidden sm:flex text-sm font-semibold">
             Unsolved Tickets
           </p>
@@ -276,7 +276,7 @@ export default function TicketDashboard() {
               <div
                 style={{
                   transform: menuExpand ? "translateX(0)" : "translateX(-100%)",
-                  transition: "transform 1.5s ease",
+                  transition: "transform 1.5s ",
                 }}
                 className="w-1/2 fixed top-0 right-0 h-full flex flex-col gap-3 bg-neutral-100 z-50 sm:hidden"
               >
