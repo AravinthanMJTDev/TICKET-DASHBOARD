@@ -29,24 +29,10 @@ import {
   Menu,
   PlusIcon,
   SearchIcon,
-  SquareArrowOutUpRight,
   Trash2Icon,
   X,
 } from "lucide-react";
 import Popup from "./popupform";
-
-interface UserType {
-  id: number;
-  name: string;
-  email: string;
-  avatar: string;
-  role: string;
-  team: string;
-  subject: string;
-  status: string;
-  priority: string;
-  agent: string;
-}
 
 const statusColorMap: Record<string, CircularProgressProps["color"]> = {
   Recent: "success",
